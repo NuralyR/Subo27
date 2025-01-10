@@ -1,240 +1,187 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Команда Subo - FLL Submerged 2024-2025</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f8ff;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        background-color: #005f73;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        position: relative;
-        animation: fadeInScale 1.5s ease-in-out;
-    }
-    header h1 {
-        margin: 0;
-    }
-    header img.logo-left, header img.logo-above-text, header img.logo-right {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    header img.logo-left:hover, header img.logo-above-text:hover, header img.logo-right:hover {
-        transform: scale(1.1);
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    header img.logo-left {
-        position: absolute;
-        top: 10px;
-        left: 20px;
-        width: 105px;
-        height: 105px;
-        border-radius: 50%;
-        border: 3px solid white;
-        object-fit: cover;
-    }
-    header img.logo-above-text {
-        display: block;
-        width: 160px;
-        height: 100px;
-        margin: 0 auto 10px;
-        border: 3px solid white;
-        object-fit: cover;
-    }
-    header img.logo-right {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        border: 3px solid white;
-        object-fit: cover;
-    }
-    nav {
-        background-color: #003b46;
-        padding: 10px;
-        text-align: center;
-    }
-    nav a {
-        color: white;
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: bold;
-        position: relative;
-        transition: color 0.3s ease;
-    }
-    nav a:hover {
-        color: #f0f8ff;
-    }
-    nav a::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        width: 0;
-        height: 2px;
-        background-color: #f0f8ff;
-        transition: width 0.3s ease;
-    }
-    nav a:hover::after {
-        width: 100%;
-    }
-    main {
-        padding: 20px;
-    }
-    section {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    section.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    .photo-gallery {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-    .photo-gallery img {
-        width: 300px;
-        height: 200px;
-        border-radius: 10px;
-        object-fit: cover;
-        transition: transform 0.4s ease, box-shadow 0.3s ease;
-    }
-    .photo-gallery img:hover {
-        transform: scale(1.1);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    footer {
-        background-color: #003b46;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        margin-top: 30px;
-        animation: fadeIn 1.5s ease-in-out;
-    }
-    footer p {
-        margin: 0;
-    }
-    .social-links a {
-        color: #005f73;
-        font-size: 20px;
-        margin: 0 10px;
-        animation: pulse 2s infinite;
-    }
-    @keyframes fadeInScale {
-        0% {
-            opacity: 0;
-            transform: scale(0.8);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Команда Subo - FLL Submerged 2024-2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
-        100% {
-            opacity: 1;
-            transform: scale(1);
+        header {
+            background-color: #005f73;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
         }
-    }
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
+        header h1 {
+            margin: 0;
         }
-        100% {
-            opacity: 1;
+        header img.logo-left {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
         }
-    }
-    @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
+        header img.logo-above-text {
+            display: block;
+            width: 160px;
+            height: 100px;
+            margin: 0 auto 10px;
+            border: 3px solid white;
+            object-fit: cover;
         }
-        50% {
+        header img.logo-right {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+        }
+        nav {
+            background-color: #003b46;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+        }
+        .intro, .photo-gallery, .principle, .team-info, .social-links {
+            margin: 20px 0;
+        }
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .photo-gallery img {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .photo-gallery img:hover {
             transform: scale(1.1);
         }
-    }
-    #backToTop {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #005f73;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        opacity: 0;
-        transform: scale(0);
-        transition: opacity 0.3s, transform 0.3s;
-    }
-    #backToTop.show {
-        opacity: 1;
-        transform: scale(1);
-    }
-    #backToTop:hover {
-        background-color: #003b46;
-    }
-</style>
+        footer {
+            background-color: #003b46;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        /* Анимация появления секций */
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
 <header>
-    <img src="img/logo.subo.jfif alt="Логотип команды Subo" class="logo-left">
-    <img src="img/logo.fll.jfif" alt="Верхний логотип команды Subo" class="logo-above-text">
-    <img src="img/logo.school.jfif" alt="Дополнительное изображение" class="logo-right">
+    <img src="img/logo.subo.jfif" alt="Логотип команды Subo" class="logo-left">
+    <img src="img/logo.subo.jfif" alt="Основной логотип Subo" class="logo-above-text">
+    <img src="img/logo.school.jfif" alt="Логотип школы" class="logo-right">
     <h1>Команда Subo - FLL Submerged 2024-2025</h1>
     <p>Біз FIRST LEGO League Submerged Challenge жарысына қатысамыз</p>
 </header>
+
 <nav>
     <a href="#intro">Басты бет</a>
     <a href="#gallery">Галерея</a>
-    <a href="#principle">Жобамыздың жұмыс жасау принципі</a>
+    <a href="#principle">Жобаның жұмыс принципі</a>
     <a href="#info">Команда туралы</a>
     <a href="#social">Әлеуметтік желілер</a>
 </nav>
+
 <main>
     <section id="intro" class="intro">
         <h2>Team Subo-ға қош келдіңіз!</h2>
         <p>Біз Jayiq FIRST LEGO League Championship жарысының алғашқы кезеңінен өтіп, Batys FIRST LEGO League Championship-ке барамыз. Біздің жолымызды қадағалаңыз!</p>
+        <h2>"Sustainable Urban Barrier Overflow"</h2>
+        <h2>"Тұрақты қалалық қамал мен артық суды басқару"</h2>
     </section>
+
     <section id="gallery" class="photo-gallery">
         <h2>Галерея</h2>
         <img src="team_photo1.jpg" alt="Команда суреті 1">
         <img src="team_photo2.jpg" alt="Команда суреті 2">
+        <img src="team_photo3.jpg" alt="Команда суреті 3">
+    </section>
+
+    <section id="principle" class="principle">
+        <h2>Жобаның жұмыс принципі</h2>
+        <p>Біздің жоба қоршаған ортаға тұрақты су деңгейін бақылау үшін бірнеше сенсорларды қолданады.</p>
+    </section>
+
+    <section id="info" class="team-info">
+        <h2>Команда туралы</h2>
+        <p>Біздің команда Subo – талантты және жанқиярлықпен жұмыс істейтін жас инженерлерден тұрады.</p>
+        <ul>
+            <li><strong>Рахметов Нурали</strong> - Бағдарламашы, жоба үйлестіруші</li>
+            <li><strong>Теңізбай Айым</strong> - Зерттеуші</li>
+            <li><strong>Қаратаев Ерасыл</strong> - Инженер</li>
+            <li><strong>Ахметова Мадина</strong> - Дизайнер</li>
+            <li><strong>Қаман Жібек</strong> - SMM маман</li>
+            <li><strong>Төлеген Аяжан</strong> - Мобилограф</li>
+        </ul>
+    </section>
+
+    <section id="social" class="social-links">
+        <h3>Бізді Instagram-да бақылаңыз!</h3>
+        <a href="https://www.instagram.com/subo_fll_challange/" target="_blank">@subo_fll_challange</a>
     </section>
 </main>
-<section id="social" class="social-links">
-    <h3>Instagram</h3>
-    <a href="https://www.instagram.com/subo_fll_challange/" target="_blank">@subo_fll_challange</a>
-</section>
+
 <footer>
     <p>&copy; 2025 Команда Subo. Барлық құқықтар қорғалған.</p>
 </footer>
-<button id="backToTop">↑</button>
+
 <script>
-    document.addEventListener("scroll", () => {
-        document.querySelectorAll("section").forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) {
-                section.classList.add("show");
+    // Анимация появления секций при прокрутке
+    const sections = document.querySelectorAll("section");
+    const options = {
+        threshold: 0.2
+    };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
             }
         });
-        const backToTop = document.getElementById('backToTop');
-        if (window.scrollY > 200) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
-    document.getElementById('backToTop').addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
     });
 </script>
 </body>
