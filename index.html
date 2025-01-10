@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Команда Subo - FLL Submerged 2024-2025</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,30 +19,6 @@
             padding: 20px;
             text-align: center;
             animation: fadeIn 1.5s ease-in-out;
-            opacity: 0; /* Начальное состояние для анимации */
-            animation-fill-mode: forwards;
-        }
-
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 20px;
-            animation: fadeInIcons 2s ease-in-out;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-
-        .icon-container .icon {
-            text-align: center;
-            font-size: 40px;
-            color: #fff;
-        }
-
-        .icon-container .icon span {
-            display: block;
-            font-size: 16px;
-            margin-top: 10px;
         }
 
         nav {
@@ -73,77 +48,104 @@
 
         main {
             padding: 20px;
-            opacity: 0; /* Для эффекта появления */
-            animation: fadeIn 2s ease-in-out 1s;
-            animation-fill-mode: forwards;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .photo-gallery img {
-            width: 100%;
-            max-width: 300px;
-            margin: 10px;
-            opacity: 0; /* Начальное состояние */
-            transform: scale(0.9); /* Уменьшение */
-            animation: fadeInScale 1s ease-in-out forwards;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
         }
 
-        .photo-gallery img:nth-child(1) {
-            animation-delay: 0.2s;
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        .photo-gallery img:nth-child(2) {
-            animation-delay: 0.4s;
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background-color: #005f73;
+            transform: translateX(-50%);
         }
 
         .timeline-event {
-            opacity: 0; /* Начальное состояние */
-            transform: translateX(-50px);
-            animation: slideInLeft 1s ease forwards;
+            position: relative;
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        .timeline-event:nth-child(1) {
-            animation-delay: 0.3s;
-        }
-        .timeline-event:nth-child(2) {
-            animation-delay: 0.6s;
+        .timeline-event:nth-child(odd) {
+            left: 0;
         }
 
-        #principles h3, #principles p {
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: slideDown 0.8s ease forwards;
+        .timeline-event:nth-child(even) {
+            left: 50%;
         }
 
-        #principles h3:nth-of-type(1), #principles p:nth-of-type(1) {
-            animation-delay: 0.2s;
+        .timeline-event .event-content {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
         }
-        #principles h3:nth-of-type(2), #principles p:nth-of-type(2) {
-            animation-delay: 0.4s;
-        }
-        #principles h3:nth-of-type(3), #principles p:nth-of-type(3) {
-            animation-delay: 0.6s;
+
+        .advantages {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
         }
 
         .advantage {
-            opacity: 0;
-            transform: scale(0.8);
-            animation: fadeInZoom 0.8s ease forwards;
+            width: 30%;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.4s ease;
         }
 
-        .advantage:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-        .advantage:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-        .advantage:nth-child(3) {
-            animation-delay: 0.6s;
+        .advantage:hover {
+            transform: scale(1.1);
         }
 
         footer {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-in-out forwards;
-            animation-delay: 1s;
+            background-color: #005f73;
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
 
         @keyframes fadeIn {
@@ -155,12 +157,12 @@
             }
         }
 
-        @keyframes fadeInIcons {
-            0% {
+        @keyframes fadeInUp {
+            from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(20px);
             }
-            100% {
+            to {
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -174,81 +176,12 @@
                 width: 100%;
             }
         }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInZoom {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
     </style>
 </head>
 <body>
     <header>
         <h1>Команда Subo - FLL Submerged 2024-2025</h1>
         <p>Біз FIRST LEGO League Submerged Challenge жарысына қатысамыз</p>
-        <div class="icon-container">
-            <div class="icon">
-                <i class="fas fa-robot"></i>
-                <span>Робототехника</span>
-            </div>
-            <div class="icon">
-                <i class="fas fa-water"></i>
-                <span>Су қауіпсіздігі</span>
-            </div>
-            <div class="icon">
-                <i class="fas fa-users"></i>
-                <span>Командалық жұмыс</span>
-            </div>
-        </div>
     </header>
     <nav>
         <a href="#intro">Басты бет</a>
@@ -263,12 +196,79 @@
             <h2>Team Subo-ға қош келдіңіз!</h2>
             <p>Біз Jayiq FIRST LEGO League Championship жарысының алғашқы кезеңінен өтіп, Batys FIRST LEGO League Championship-ке барамыз. Біздің жолымызды қадағалаңыз!</p>
         </section>
+        <section id="gallery" class="photo-gallery">
+            <h2>Галерея</h2>
+            <img src="team_photo1.jpg" alt="Команда суреті 1">
+            <img src="team_photo2.jpg" alt="Команда суреті 2">
+        </section>
+        <section id="timeline" class="timeline">
+            <h2>Жетістіктер</h2>
+            <div class="timeline-event">
+                <div class="event-content">
+                    <h3>2024</h3>
+                    <p>Команда құрылған жыл. Алғашқы қадамдарымызды жасадық.</p>
+                </div>
+            </div>
+            <div class="timeline-event">
+                <div class="event-content">
+                    <h3>2025</h3>
+                    <p>Jayiq FIRST LEGO League жарысының бірінші кезеңінен өттік.</p>
+                </div>
+            </div>
+        </section>
+        <section id="principles">
+            <h2>Жобамыздың жұмыс жасау принципі</h2>
+            <h3>1. Ультразвуковой датчик</h3>
+            <p>Ультразвуковой датчик қолданушылардың немесе объектілердің қашықтығын анықтау үшін қолданылады. Ол TRIG пініне сигнал жіберіп, ECHO піні арқылы оның оралу уақытын өлшейді. Осылайша, біз объекті мен датчик арасындағы қашықтықты есептей аламыз. Бұл ақпарат кейінірек жүйеде қауіпсіздік шараларын іске қосу үшін пайдаланылады.</p>
+
+            <h3>2. Су-сенсоры</h3>
+            <p>Су сенсоры судың деңгейін өлшейді. Бұл сенсор судың деңгейі жоғары болған кезде, жоғары деңгейді көрсететін сигнал береді. Бұл маңызды, себебі су деңгейі жоғары болғанда, қауіпсіздік шаралары қажет болуы мүмкін. Ардуино осы сенсордың оқулары негізінде жүйені басқаруға мүмкіндік береді.</p>
+
+            <h3>3. Қадамды-Моторлар</h3>
+            <p>Біз екі қадамдық моторды қолданамыз, олар қақпаларды ашып-жабу үшін қолданылады. Әрбір мотор төрт түрлі қадамды орындайды. Ардуино оларды басқарып, қажет кезде қақпаларды ашып немесе жабады. Әрбір қозғалысқа арналған қадамның нақты реті Ардуиноның басқару логикасына сәйкес орындалады.</p>
+
+            <h3>4. Buzzer және светодиодтар</h3>
+            <p>Қауіп-қатер туындаған кезде, жүйе қуаттылығы төмен, су деңгейі жоғары немесе қашықтық тым қысқа болса, қақпаларды ашу, қызыл светодиодты қосу, сондай-ақ белгілі бір уақыт ішінде буззерді іске қосу арқылы хабарлайды.</p>
+        </section>
+        <section id="advantages" class="advantages">
+            <h2>Біздің артықшылықтар</h2>
+            <div class="advantage">
+                <h3>Креативтілік</h3>
+                <p>Креативті шешімдерді таба білеміз.</p>
+            </div>
+            <div class="advantage">
+                <h3>Технология</h3>
+                <p>Жаңа технологияларды қолданамыз.</p>
+            </div>
+            <div class="advantage">
+                <h3>Командалық жұмыс</h3>
+                <p>Бірлесіп жұмыс істеу арқылы жеңіске жетеміз.</p>
+            </div>
+        </section>
     </main>
     <footer id="footer">
         <h2>Бізбен байланыс</h2>
         <p>Команда Subo | Email: subo@example.com | Телефон: +7 (777) 123-45-67</p>
         <p>Барлық құқықтар қорғалған © 2025</p>
     </footer>
+    <script>
+        document.addEventListener("scroll", () => {
+            document.querySelectorAll("section").forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight - 100) {
+                    section.classList.add("show");
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("section").forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight - 100) {
+                    section.classList.add("show");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
