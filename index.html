@@ -18,6 +18,7 @@
             color: white;
             padding: 20px;
             text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         nav {
@@ -31,26 +32,33 @@
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
+            position: relative;
         }
 
-        nav a:hover {
-            color: #f0f8ff;
+        nav a:hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background-color: #f0f8ff;
+            animation: slideIn 0.3s ease;
         }
 
         main {
             padding: 20px;
         }
 
-        /* Секции для анимации */
         section {
-            opacity: 0; /* Изначально скрыты */
-            transform: translateY(20px); /* Смещение вниз */
-            transition: opacity 0.8s ease, transform 0.8s ease; /* Анимация */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
         section.show {
-            opacity: 1; /* Показываем */
-            transform: translateY(0); /* Убираем смещение */
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .photo-gallery {
@@ -66,6 +74,101 @@
             height: 200px;
             border-radius: 10px;
             object-fit: cover;
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background-color: #005f73;
+            transform: translateX(-50%);
+        }
+
+        .timeline-event {
+            position: relative;
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .timeline-event:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-event:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-event .event-content {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        .advantages {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .advantage {
+            width: 30%;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+
+        .advantage:hover {
+            transform: scale(1.1);
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            width: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.4s ease;
+        }
+
+        .team-member:hover {
+            transform: scale(1.1);
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
 
         footer {
@@ -73,6 +176,35 @@
             color: white;
             padding: 20px;
             text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -84,12 +216,13 @@
     <nav>
         <a href="#intro">Басты бет</a>
         <a href="#gallery">Галерея</a>
-        <a href="#principle">Жобамыздың жұмыс жасау принципі</a>
-        <a href="#info">Команда туралы</a>
+        <a href="#timeline">Жетістіктер</a>
+        <a href="#advantages">Біздің артықшылықтар</a>
+        <a href="#team">Команда туралы</a>
         <a href="#footer">Контакты</a>
     </nav>
     <main>
-        <section id="intro" class="intro">
+        <section id="intro">
             <h2>Team Subo-ға қош келдіңіз!</h2>
             <p>Біз Jayiq FIRST LEGO League Championship жарысының алғашқы кезеңінен өтіп, Batys FIRST LEGO League Championship-ке барамыз. Біздің жолымызды қадағалаңыз!</p>
         </section>
@@ -98,9 +231,70 @@
             <img src="team_photo1.jpg" alt="Команда суреті 1">
             <img src="team_photo2.jpg" alt="Команда суреті 2">
         </section>
-        <section id="info">
+        <section id="timeline" class="timeline">
+            <h2>Жетістіктер</h2>
+            <div class="timeline-event">
+                <div class="event-content">
+                    <h3>2024</h3>
+                    <p>Команда құрылған жыл. Алғашқы қадамдарымызды жасадық.</p>
+                </div>
+            </div>
+            <div class="timeline-event">
+                <div class="event-content">
+                    <h3>2025</h3>
+                    <p>Jayiq FIRST LEGO League жарысының бірінші кезеңінен өттік.</p>
+                </div>
+            </div>
+        </section>
+        <section id="advantages" class="advantages">
+            <h2>Біздің артықшылықтар</h2>
+            <div class="advantage">
+                <h3>Креативтілік</h3>
+                <p>Креативті шешімдерді таба білеміз.</p>
+            </div>
+            <div class="advantage">
+                <h3>Технология</h3>
+                <p>Жаңа технологияларды қолданамыз.</p>
+            </div>
+            <div class="advantage">
+                <h3>Командалық жұмыс</h3>
+                <p>Бірлесіп жұмыс істеу арқылы жеңіске жетеміз.</p>
+            </div>
+        </section>
+        <section id="team">
             <h2>Команда туралы</h2>
-            <p>Біздің команда FIRST LEGO League жарысына арналған ерекше жобаларды жүзеге асырады.</p>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="nuraly.jpg" alt="Рахметов Нурали">
+                    <h3>Рахметов Нурали</h3>
+                    <p>Бағдарламашы, жоба үйлестіруші</p>
+                </div>
+                <div class="team-member">
+                    <img src="aiym.jpg" alt="Теңізбай Айым">
+                    <h3>Теңізбай Айым</h3>
+                    <p>Зерттеуші</p>
+                </div>
+                <div class="team-member">
+                    <img src="yerasyl.jpg" alt="Қаратаев Ерасыл">
+                    <h3>Қаратаев Ерасыл</h3>
+                    <p>Инженер</p>
+                </div>
+                <div class="team-member">
+                    <img src="madina.jpg" alt="Ахметова Мадина">
+                    <h3>Ахметова Мадина</h3>
+                    <p>Дизайнер</p>
+                </div>
+                <div class="team-member">
+                    <img src="zhibek.jpg" alt="Қаман Жібек">
+                    <h3>Қаман Жібек</h3>
+                    <p>SMM маман</p>
+                </div>
+                <div class="team-member">
+                    <img src="ayazhan.jpg" alt="Төлеген Аяжан">
+                    <h3>Төлеген Аяжан</h3>
+                    <p>Мобилограф</p>
+                </div>
+            </div>
         </section>
     </main>
     <footer id="footer">
@@ -109,17 +303,15 @@
         <p>Барлық құқықтар қорғалған © 2025</p>
     </footer>
     <script>
-        // Анимация появления секций
         document.addEventListener("scroll", () => {
             document.querySelectorAll("section").forEach(section => {
                 const rect = section.getBoundingClientRect();
                 if (rect.top <= window.innerHeight - 100) {
-                    section.classList.add("show"); // Показываем секцию
+                    section.classList.add("show");
                 }
             });
         });
 
-        // Проверка при загрузке страницы
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll("section").forEach(section => {
                 const rect = section.getBoundingClientRect();
