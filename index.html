@@ -20,6 +20,8 @@
             padding: 20px;
             text-align: center;
             animation: fadeIn 1.5s ease-in-out;
+            opacity: 0; /* Начальное состояние для анимации */
+            animation-fill-mode: forwards;
         }
 
         .icon-container {
@@ -27,6 +29,9 @@
             justify-content: center;
             gap: 50px;
             margin-top: 20px;
+            animation: fadeInIcons 2s ease-in-out;
+            opacity: 0;
+            animation-fill-mode: forwards;
         }
 
         .icon-container .icon {
@@ -68,6 +73,9 @@
 
         main {
             padding: 20px;
+            opacity: 0; /* Для эффекта появления */
+            animation: fadeIn 2s ease-in-out 1s;
+            animation-fill-mode: forwards;
         }
 
         @keyframes fadeIn {
@@ -76,6 +84,17 @@
             }
             to {
                 opacity: 1;
+            }
+        }
+
+        @keyframes fadeInIcons {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -121,55 +140,6 @@
             <h2>Team Subo-ға қош келдіңіз!</h2>
             <p>Біз Jayiq FIRST LEGO League Championship жарысының алғашқы кезеңінен өтіп, Batys FIRST LEGO League Championship-ке барамыз. Біздің жолымызды қадағалаңыз!</p>
         </section>
-        <section id="gallery" class="photo-gallery">
-            <h2>Галерея</h2>
-            <img src="team_photo1.jpg" alt="Команда суреті 1">
-            <img src="team_photo2.jpg" alt="Команда суреті 2">
-        </section>
-        <section id="timeline" class="timeline">
-            <h2>Жетістіктер</h2>
-            <div class="timeline-event">
-                <div class="event-content">
-                    <h3>2024</h3>
-                    <p>Команда құрылған жыл. Алғашқы қадамдарымызды жасадық.</p>
-                </div>
-            </div>
-            <div class="timeline-event">
-                <div class="event-content">
-                    <h3>2025</h3>
-                    <p>Jayiq FIRST LEGO League жарысының бірінші кезеңінен өттік.</p>
-                </div>
-            </div>
-        </section>
-        <section id="principles">
-            <h2>Жобамыздың жұмыс жасау принципі</h2>
-            <h3>1. Ультразвуковой датчик</h3>
-            <p>Ультразвуковой датчик қолданушылардың немесе объектілердің қашықтығын анықтау үшін қолданылады. Ол TRIG пініне сигнал жіберіп, ECHO піні арқылы оның оралу уақытын өлшейді. Осылайша, біз объекті мен датчик арасындағы қашықтықты есептей аламыз. Бұл ақпарат кейінірек жүйеде қауіпсіздік шараларын іске қосу үшін пайдаланылады.</p>
-
-            <h3>2. Су-сенсоры</h3>
-            <p>Су сенсоры судың деңгейін өлшейді. Бұл сенсор судың деңгейі жоғары болған кезде, жоғары деңгейді көрсететін сигнал береді. Бұл маңызды, себебі су деңгейі жоғары болғанда, қауіпсіздік шаралары қажет болуы мүмкін. Ардуино осы сенсордың оқулары негізінде жүйені басқаруға мүмкіндік береді.</p>
-
-            <h3>3. Қадамды-Моторлар</h3>
-            <p>Біз екі қадамдық моторды қолданамыз, олар қақпаларды ашып-жабу үшін қолданылады. Әрбір мотор төрт түрлі қадамды орындайды. Ардуино оларды басқарып, қажет кезде қақпаларды ашып немесе жабады. Әрбір қозғалысқа арналған қадамның нақты реті Ардуиноның басқару логикасына сәйкес орындалады.</p>
-
-            <h3>4. Buzzer және светодиодтар</h3>
-            <p>Қауіп-қатер туындаған кезде, жүйе қуаттылығы төмен, су деңгейі жоғары немесе қашықтық тым қысқа болса, қақпаларды ашу, қызыл светодиодты қосу, сондай-ақ белгілі бір уақыт ішінде буззерді іске қосу арқылы хабарлайды.</p>
-        </section>
-        <section id="advantages" class="advantages">
-            <h2>Біздің артықшылықтар</h2>
-            <div class="advantage">
-                <h3>Креативтілік</h3>
-                <p>Креативті шешімдерді таба білеміз.</p>
-            </div>
-            <div class="advantage">
-                <h3>Технология</h3>
-                <p>Жаңа технологияларды қолданамыз.</p>
-            </div>
-            <div class="advantage">
-                <h3>Командалық жұмыс</h3>
-                <p>Бірлесіп жұмыс істеу арқылы жеңіске жетеміз.</p>
-            </div>
-        </section>
     </main>
     <footer id="footer">
         <h2>Бізбен байланыс</h2>
@@ -178,4 +148,3 @@
     </footer>
 </body>
 </html>
-
