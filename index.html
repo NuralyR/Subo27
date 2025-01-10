@@ -78,6 +78,74 @@
             animation-fill-mode: forwards;
         }
 
+        .photo-gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            opacity: 0; /* Начальное состояние */
+            transform: scale(0.9); /* Уменьшение */
+            animation: fadeInScale 1s ease-in-out forwards;
+        }
+
+        .photo-gallery img:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .photo-gallery img:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .timeline-event {
+            opacity: 0; /* Начальное состояние */
+            transform: translateX(-50px);
+            animation: slideInLeft 1s ease forwards;
+        }
+
+        .timeline-event:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        .timeline-event:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        #principles h3, #principles p {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideDown 0.8s ease forwards;
+        }
+
+        #principles h3:nth-of-type(1), #principles p:nth-of-type(1) {
+            animation-delay: 0.2s;
+        }
+        #principles h3:nth-of-type(2), #principles p:nth-of-type(2) {
+            animation-delay: 0.4s;
+        }
+        #principles h3:nth-of-type(3), #principles p:nth-of-type(3) {
+            animation-delay: 0.6s;
+        }
+
+        .advantage {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeInZoom 0.8s ease forwards;
+        }
+
+        .advantage:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .advantage:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .advantage:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        footer {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -104,6 +172,61 @@
             }
             to {
                 width: 100%;
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInZoom {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
