@@ -71,6 +71,28 @@
             transform: translateY(0);
         }
 
+        /* Галерея с правильными размерами картинок */
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .photo-gallery img {
+            width: 320px; /* Фиксированная ширина */
+            height: 320px; /* Фиксированная высота */
+            border-radius: 10px;
+            object-fit: cover; /* Сохраняет пропорции изображений */
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
         /* Прочее стилизование */
 
         @keyframes fadeIn {
