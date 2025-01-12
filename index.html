@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Команда Subo - FLL Submerged 2024-2025</title>
+    
+    <!-- Добавим Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +23,12 @@
             padding: 20px;
             text-align: center;
             animation: fadeIn 1.5s ease-in-out;
+        }
+
+        header i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            animation: bounce 1.5s ease-in-out infinite;
         }
 
         nav {
@@ -61,92 +71,7 @@
             transform: translateY(0);
         }
 
-        .photo-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .photo-gallery img {
-            width: 320px;
-            height: 330px;
-            border-radius: 10px;
-            object-fit: cover;
-            transition: transform 0.4s ease, box-shadow 0.3s ease;
-        }
-
-        .photo-gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background-color: #005f73;
-            transform: translateX(-50%);
-        }
-
-        .timeline-event {
-            position: relative;
-            width: 50%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .timeline-event:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-event:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-event .event-content {
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease;
-        }
-
-        .advantages {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .advantage {
-            width: 30%;
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.4s ease;
-        }
-
-        .advantage:hover {
-            transform: scale(1.1);
-        }
-
-        footer {
-            background-color: #005f73;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+        /* Прочее стилизование */
 
         @keyframes fadeIn {
             from {
@@ -157,66 +82,36 @@
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
+        @keyframes bounce {
+            0%, 100% {
                 transform: translateY(0);
             }
-        }
-
-        @keyframes slideIn {
-            from {
-                width: 0;
+            50% {
+                transform: translateY(-10px);
             }
-            to {
-                width: 100%;
-            }
-        }
-
-        /* Центрируем список участников */
-        #team ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: center;
-        }
-
-        #team li {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        #team h2 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        /* Стиль для иконок */
-        .advantage img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Команда Subo - FLL Submerged 2024-2025</h1>
         <p>Біз FIRST LEGO League Submerged Challenge жарысына қатысамыз</p>
+        <!-- Добавляем иконки робота и технологий -->
+        <i class="fas fa-robot"></i>  <!-- Иконка робота -->
+        <i class="fas fa-cogs"></i>   <!-- Иконка механизмов -->
     </header>
+
     <nav>
         <a href="#intro">Басты бет</a>
         <a href="#gallery">Галерея</a>
         <a href="#timeline">Жетістіктер</a>
-        <a href="#principle">Жобаның принциптері</a>
+        <a href="#principles">Жобаның принциптері</a>
         <a href="#team">Команда</a>
         <a href="#advantages">Біздің артықшылықтар</a>
         <a href="#footer">Контакты</a>
     </nav>
+
     <main>
         <section id="top-photos" class="photo-gallery">
             <h2>Біздің Команда</h2>
@@ -226,12 +121,6 @@
             <img src="img/Yerasyl.jpeg" alt="Ерасыл 4">
             <img src="img/Ayazhan.jpeg" alt="Аяжан 5">
             <img src="img/Madina.jpeg" alt="Мадина 6">
-        </section>
-
-        <section id="gallery" class="photo-gallery">
-            <h2>Галерея</h2>
-            <img src="team_photo1.jpg" alt="Команда суреті 1">
-            <img src="team_photo2.jpg" alt="Команда суреті 2">
         </section>
 
         <section id="intro">
@@ -258,22 +147,6 @@
             </div>
         </section>
 
-        <!-- Новый раздел с принципами -->
-        <section id="principle" class="principle">
-            <h2>Жобамыздың жұмыс жасау принципі</h2>
-            <h3>1. Ультразвуковой датчик</h3>
-            <p>Ультразвуковой датчик қолданушылардың немесе объектілердің қашықтығын анықтау үшін қолданылады. Ол TRIG пініне сигнал жіберіп, ECHO піні арқылы оның оралу уақытын өлшейді. Осылайша, біз объекті мен датчик арасындағы қашықтықты есептей аламыз. Бұл ақпарат кейінірек жүйеде қауіпсіздік шараларын іске қосу үшін пайдаланылады.</p>
-
-            <h3>2. Су сенсоры</h3>
-            <p>Су сенсоры судың деңгейін өлшейді. Бұл сенсор судың деңгейі жоғары болған кезде, жоғары деңгейді көрсететін сигнал береді. Бұл маңызды, себебі су деңгейі жоғары болғанда, қауіпсіздік шаралары қажет болуы мүмкін. Ардуино осы сенсордың оқулары негізінде жүйені басқаруға мүмкіндік береді.</p>
-
-            <h3>3. Моторлар</h3>
-            <p>Біз екі қадамдық моторды қолданамыз, олар қақпаларды ашып-жабу үшін қолданылады. Әрбір мотор төрт түрлі қадамды орындайды. Ардуино оларды басқарып, қажет кезде қақпаларды ашып немесе жабады. Әрбір қозғалысқа арналған қадамның нақты реті Ардуиноның басқару логикасына сәйкес орындалады.</p>
-
-            <h3>4. Буззер және светодиодтар</h3>
-            <p>Қауіп-қатер туындаған кезде, жүйе қуаттылығы төмен, су деңгейі жоғары немесе қашықтық тым қысқа болса, қақпаларды ашу, қызыл светодиодты қосу, сондай-ақ белгілі бір уақыт ішінде буззерді іске қосу арқылы хабарлайды.</p>
-        </section>
-
         <section id="timeline" class="timeline">
             <h2>Жетістіктер</h2>
             <div class="timeline-event">
@@ -293,7 +166,7 @@
         <section id="team">
             <h2>Команда мүшелері</h2>
             <ul>
-                <li><strong>Рахметов Нурали</strong> - Команда бағдарламаушысы, жоба үйлестіруші</li>
+                <li><strong>Рахметов Нурали</strong> - Команда бағдарламашысы, жоба үйлестіруші</li>
                 <li><strong>Теңізбай Айым</strong> - Команда зерттеушісі</li>
                 <li><strong>Қаратаев Ерасыл</strong> - Команда инженері</li>
                 <li><strong>Ахметова Мадина</strong> - Дизайнер</li>
@@ -328,5 +201,6 @@
             });
         });
     </script>
+
 </body>
 </html>
